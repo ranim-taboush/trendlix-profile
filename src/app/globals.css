@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --swiper-theme-color: #e0193c !important;
+  --swiper-pagination-color: #e0193c !important;
+  --swiper-pagination-bullet-active-color: #fff !important;
+  --swiper-pagination-bullet-inactive-color: #cccccc88 !important;
+  --swiper-pagination-bullet-inactive-opacity: 1 !important;
+  --swiper-pagination-bullet-size: 8px !important;
+  --swiper-pagination-bullet-horizontal-gap: 8px !important;
+}
+
+@layer base {
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+img {
+}
+
+body {
+  overflow: hidden;
+}
+
+.swiper-wrapper{
+  height: 100svh !important;
+}
+
+@media not all and (min-width: 1024px) {
+}
