@@ -17,7 +17,7 @@ function Profile() {
     const [isMoblie, setIsMobile] = useState(false)
     useEffect(() => {
         const checkIsMobile = () => {
-            if(window.innerHeight>window.innerWidth) setIsMobile(true)
+            if(window.innerWidth < 768) {setIsMobile(true); console.log('window.innerWidth', window.innerWidth)}
             else setIsMobile(false)
         }
         checkIsMobile()
@@ -44,10 +44,11 @@ function Profile() {
         effect='flip'
         preventInteractionOnTransition={true}
         navigation={true}
-        pagination={{
+        pagination={isMoblie? false
+        :{
           clickable: true,
         }}
-        modules={[Zoom, Navigation, Pagination, EffectFlip]}
+        modules={isMoblie? [[Zoom, Navigation, EffectFlip]]: [Zoom, Navigation, Pagination, EffectFlip]}
         grabCursor={true}
         slidesPerView={1}
         spaceBetween={1}
@@ -61,11 +62,11 @@ function Profile() {
                 </div> 
                 <Image src={_.img} alt={_.title} 
                 priority placeholder='blur' lazy="true"
-                className='object-contain max-w-7xl mx-auto h-full w-full' />
+                className='object-contain max-w-7xl mx-auto h-full w-full max-md:rotate-90 max-sm:scale-110 max-xs:scale-150' />
               </div>
               :<Image src={_.img} alt={_.title}
               priority placeholder='blur' lazy="true"
-              className='object-contain max-w-7xl mx-auto h-full w-full' />
+              className='object-contain max-w-7xl mx-auto h-full w-full max-md:rotate-90 max-sm:scale-110 max-xs:scale-150' />
               }
             </SwiperSlide> 
           })
