@@ -1,7 +1,7 @@
 "use client"
 import { useRef, useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectFlip, Zoom, Pagination, Navigation } from 'swiper/modules';
+import { EffectFlip, Zoom, Pagination, Navigation, EffectFade } from 'swiper/modules';
 // Import Swiper styles
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
@@ -41,14 +41,14 @@ function Profile() {
         zoom={true}
         parallax={true}
         speed='300'
-        effect='flip'
+        effect='fade'
         preventInteractionOnTransition={true}
         navigation={true}
         pagination={isMoblie? false
         :{
           clickable: true,
         }}
-        modules={isMoblie? [[Zoom, Navigation, EffectFlip]]: [Zoom, Navigation, Pagination, EffectFlip]}
+        modules={isMoblie? [Zoom, Navigation, EffectFade]: [Zoom, Navigation, Pagination, EffectFade]}
         grabCursor={true}
         slidesPerView={1}
         spaceBetween={1}
@@ -61,7 +61,7 @@ function Profile() {
                   <Youtube videoId={_.url} isMoblie={isMoblie} />
                 </div> 
                 <Image src={_.img} alt={_.title} 
-                priority placeholder='blur' lazy="true"
+                 placeholder='blur' lazy="true"
                 className='object-contain max-w-7xl mx-auto h-full w-full max-md:rotate-90 max-sm:scale-110 max-xs:scale-150' />
               </div>
               :<Image src={_.img} alt={_.title}
